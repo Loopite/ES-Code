@@ -40,7 +40,7 @@ inline double calcH(double alpha)
 }
 
 /**
- * Calcul la surface de l'élipse obtenue.
+ * Calcul la surface de l'ellipse obtenue.
  * Exprimée en cm carré.
  * @param height a double argument.
  */
@@ -61,7 +61,7 @@ inline double calcPUS(double surface)
 
 int main() 
 {
-  FILE *pFile { fopen ("result.csv", "w") }; // Création du fichier + ouverture
+  FILE *pFile { fopen ("result.csv", "w") }; // Création du fichier et ouverture
   
   if(pFile != NULL)
     fputs("Angle,Longueur,Hauteur,Surface,P.U.S\n", pFile); // Ecriture des en-têtes CSV.
@@ -79,7 +79,11 @@ int main()
     printf("Angle=%f Longueur=%f Hauteur=%f Surface=%f P.U.S=%f\n",
             angle,   CIRCLE_WIDTH, height, surface, pus);
 
-    // Préparation de la ligne à écrire.
+    /** 
+     * Préparation de la ligne à écrire.
+     * - Convertion de variable typée double (décimaux) en chaîne de caractères.
+     * - Ajout via une expression ternaire le saut de ligne ou non. 
+     */
     std::string const line 
     {  
       std::to_string(angle)             + ',' // Angle
@@ -96,5 +100,5 @@ int main()
   }
 
   if(pFile != NULL)
-    fclose(pFile);
+    fclose(pFile); // Fermeture du fichier en enregistrant les données écrites.
 }
