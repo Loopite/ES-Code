@@ -90,7 +90,7 @@ int main()
     + std::to_string(CIRCLE_WIDTH)      + ',' // Longueur
     + std::to_string(height)            + ',' // Hauteur
     + std::to_string(surface)           + ',' // Surface
-    + std::to_string(pus)                + (nextValue != NB_VALUE ? "\n" : "") // Puissance par Unité de Surface (P.U.S)
+    + std::to_string(pus)               + (nextValue != NB_VALUE ? "\n" : "") // Puissance par Unité de Surface (P.U.S)
     };
 
     if(pFile != NULL)
